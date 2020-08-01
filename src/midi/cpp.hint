@@ -1,0 +1,9 @@
+// Hint files help the Visual Studio IDE interpret Visual C++ identifiers
+// such as names of functions and macros.
+// For more information see https://go.microsoft.com/fwlink/?linkid=865984
+#define offsetof(s, m) ((::size_t)&reinterpret_cast<char const volatile&>((((s*)0)->m)))
+#define offsetof(s, m) ((size_t)&(((s*)0)->m))
+#define offsetof(s, m) __builtin_offsetof(s,m)
+#define CHECK(__VA_ARGS__) INTERNAL_CATCH_TEST( "CHECK", Catch::ResultDisposition::ContinueOnFailure, __VA_ARGS__ )
+#define CHECK(__VA_ARGS__) (void)(0)
+#define CHECK(condition) CCHECK(condition, ELPP_CURR_FILE_LOGGER_ID)
